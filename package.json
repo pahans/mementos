@@ -6,16 +6,31 @@
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "immutability-helper": "^3.1.1",
+    "mongodb": "^3.6.5",
+    "mongoose": "^5.12.2",
     "react": "^17.0.2",
+    "react-dnd": "^14.0.2",
+    "react-dnd-html5-backend": "^14.0.0",
     "react-dom": "^17.0.2",
+    "react-image": "^4.0.3",
     "react-scripts": "4.0.3",
+    "react-shimmer": "^3.1.1",
+    "swagger-jsdoc": "^6",
+    "swagger-ui-express": "^4.1.6",
+    "swr": "^0.5.4",
+    "unfetch": "^4.2.0",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test:client": "react-scripts test",
+    "test:server": "jest src/server --config jest.server.config.js",
+    "eject": "react-scripts eject",
+    "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\""
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +49,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "jest-mongoose-mock": "^1.2.0",
+    "mockingoose": "^2.15.2",
+    "prettier": "^2.2.1"
+  },
+  "proxy": "http://localhost:3005"
 }
