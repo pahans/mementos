@@ -7,6 +7,18 @@ import { useCallback } from "react";
  */
 const ignoreCheckboxChange = () => {};
 
+/**
+ * Callback `onSelectedPicsChange` to change selected pictures list when selections changes.
+ *
+ * @callback onSelectedPicsChange
+ * @param {Object} selectedPics - object with information of new selected picture.
+ */
+
+/**
+ * 
+   * @param {Object} pictureInfo - Object with picture information.
+   * @param {onSelectedPicsChange} onCheckChange - Callback for onChange picture selection.
+ */
 function SelectableImage({ pictureInfo, onChange: onCheckChange, isSelected }) {
   /**
    * onClick on div/image
@@ -18,11 +30,15 @@ function SelectableImage({ pictureInfo, onChange: onCheckChange, isSelected }) {
   return (
     <div className="img-wrap" onClick={onChange}>
       <div className="check">
-        <input type="checkbox" onChange={ignoreCheckboxChange} checked={isSelected}/>
+        <input
+          type="checkbox"
+          onChange={ignoreCheckboxChange}
+          checked={isSelected}
+        />
       </div>
       <Image
         src={pictureInfo.pictureSmall}
-        fallback={<Placeholder width={150} height={200}></Placeholder>}
+        fallback={<Placeholder width={400} height={400}></Placeholder>}
       />
     </div>
   );

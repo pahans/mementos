@@ -1,0 +1,24 @@
+.past-book .grid-maker {
+  display: flex;
+  flex-direction: row;
+}
+
+.past-book .grid-maker .column-left {
+  width: 40%;
+  height: calc(100vh);
+}
+
+.past-book .grid-maker .column-right {
+  width: 60%;
+  padding: 20px;
+}
+
+.past-book .grid-maker .notification-bar{
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+  background: #808080;
+  top: 0;
+  padding: 10px 0;
+}

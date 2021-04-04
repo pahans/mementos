@@ -33,15 +33,11 @@ const options = {
       },
     ],
   },
-  apis: ['./src/server/routes/api/**/*.js'],
+  apis: ["./src/server/routes/api/**/*.js"],
 };
 
 const specs = swaggerJsdoc(options);
-router.use(
-  "/docs",
-  swaggerUi.serve,
-  swaggerUi.setup(specs)
-);
+router.use("/docs", swaggerUi.serve, swaggerUi.setup(specs));
 
 /**
  * Middleware to handle API authentication
@@ -52,22 +48,22 @@ router.use(function apiAuth(req, res, next) {
 });
 
 router.use("/gallery", galleryRoute);
-router.use("/past-book/:bookId", pastBookRoute);
+router.use("/past-book", pastBookRoute);
 
 // catch 404 and forward to error handler
-router.use(function(req, res, next) {
+router.use(function (req, res, next) {
   var err = new Error("Not Found");
   err.status = 404;
   next(err);
 });
 
 // Error Handler
-router.use(function(err, req, res, next) {
+router.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.json({
     error: {
-      message: err.message
-    }
+      message: err.message,
+    },
   });
 });
 

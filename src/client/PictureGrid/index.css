@@ -1,0 +1,28 @@
+.picture-grid {
+  height: calc(100vh - 150px);
+  padding-top: 20px;
+}
+.picture-grid .row {
+  height: 33.333%;
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+}
+.picture-grid .row img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.picture-grid .image-wrap {
+  flex: auto;
+  padding: 1px;
+  cursor: move;
+  animation: fade 1.5s infinite 100ms;
+  animation: addImage 0.5s ease-in-out;
+}
+@keyframes addImage {
+  from {
+    opacity: 0;
+  }
+}

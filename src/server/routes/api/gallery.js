@@ -21,6 +21,6 @@ const galleryController = require("../../controllers/gallery");
  *       401:
  *         description: Not found in db
  */
-router.get("/", galleryController.fetchGallery);
+router.get("/:galleryId", galleryController.fetchGallery);
 
 module.exports = router;

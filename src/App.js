@@ -1,10 +1,13 @@
+import { ToastContainer } from 'react-toastify';
 import "./App.css";
-import Home from "./client/Home";
+import 'react-toastify/dist/ReactToastify.css';
+import PastBook from "./client";
 
 function App() {
   return (
-    <div className="App">
-      <Home />
+    <div className="past-book">
+      <ToastContainer />
+      <PastBook />
     </div>
   );
 }

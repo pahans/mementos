@@ -21,7 +21,7 @@ const pastBookController = require("../../controllers/past-book");
  *       401:
  *         description: Not found in db
  */
-router.get("/", pastBookController.fetchPastBook);
+router.get("/:bookId", pastBookController.fetchPastBook);
 /**
  * @swagger
  * /past-book:
@@ -41,6 +41,6 @@ router.get("/", pastBookController.fetchPastBook);
  *       401:
  *         description: Not found in db
  */
-router.post("/", pastBookController.updatePastBook);
+router.post("/:bookId", pastBookController.updatePastBook);
 
 module.exports = router;

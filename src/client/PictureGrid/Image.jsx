@@ -1,12 +1,27 @@
 import React, { useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
 
-function Image(imageInfo) {
-  const { pictureUrl, imageId, move } = imageInfo;
+const IMAGE_DRAG_TYPE = "image";
+/**
+ * Callback `move` to move images after drag and drop.
+ *
+ * @callback move
+ * @param {string} from - Image Id of the dragging image.
+ * @param {string} to - Image Id of the dropped on to image.
+ */
+
+/**
+ * 
+ * Placeholder component for image lazy loading.
+ * @param { string } pictureUrl - Url of the image
+ * @param { string } imageId - Image Id (unique)
+ * @param {move} move - Callback that handles the drag and drop.
+ */
+function Image({ pictureUrl, imageId, move }) {
   const [, drag] = useDrag(
     () => ({
-      type: "image",
-      item: { imageId, pictureUrl },
+      type: IMAGE_DRAG_TYPE,
+      item: { imageId },
       end: (item, monitor) => {
         const dropResult = monitor.getDropResult();
         if (dropResult) {
@@ -20,19 +35,19 @@ function Image(imageInfo) {
         info: props,
       }),
     }),
-    [imageId]
+    [imageId, move]
   );
 
   const [{ isOver }, drop] = useDrop(
     () => ({
-      accept: "image",
+      accept: IMAGE_DRAG_TYPE,
       drop: () => ({ imageId }),
       collect: (monitor) => ({
         isOver: monitor.isOver(),
         canDrop: monitor.canDrop(),
       }),
     }),
-    [imageId]
+    [imageId, move]
   );
 
   const opacity = isOver ? 0.4 : 1;
@@ -40,7 +55,7 @@ function Image(imageInfo) {
   drop(drag(imageWrapRef));
   return (
     <div className="image-wrap" ref={imageWrapRef} style={{ opacity }}>
-      <img src={`${pictureUrl}`} alt={imageId}/>
+      <img src={`${pictureUrl}`} alt={imageId} />
     </div>
   );
 }

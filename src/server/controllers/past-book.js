@@ -1,13 +1,7 @@
 const PastBook = require("../models/past-book");
 
-/**
- * book id is hardcoded because we have not implementated users yet and we only support saving for one pastbook only.
- * book id should passed to the API in the proper implementation
- */
-const BOOK_ID = "demo-book-id";
-
 async function fetchPastBook(req, res) {
-  await PastBook.findOne({ _id: BOOK_ID }).then((data) => {
+  await PastBook.findOne({ _id: req.params.bookId }).then((data) => {
     if (!data) {
       res.json({ selectedPictures: [] });
     } else {
@@ -20,11 +14,12 @@ async function fetchPastBook(req, res) {
 async function updatePastBook(req, res) {
   // TODO: improve input validations
   const selectedPictures = req.body.selectedPictures || [];
-  console.log(selectedPictures);
   const newData = {
     selectedPictures,
   };
-  await PastBook.findOneAndUpdate({_id: BOOK_ID}, newData, { upsert: true }).then(() => {
+  await PastBook.findOneAndUpdate({ _id: req.params.bookId }, newData, {
+    upsert: true,
+  }).then(() => {
     res.json({ status: "success" });
   });
 }
