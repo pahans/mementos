@@ -7,7 +7,7 @@ describe("fetch pastbook", () => {
   let req, res;
   beforeEach(() => {
     jest.clearAllMocks();
-    req = { body: {} };
+    req = { body: {}, params: {bookId: "demo-book-id"}};
     res = { json: jest.fn() };
   });
   test("fetch pastbook - with data", async () => {
@@ -54,7 +54,7 @@ describe("update pastbook", () => {
   let res;
   let req;
   beforeEach(() => {
-    req = { body: { selectedPictures: [] } };
+    req = { body: { selectedPictures: [] }, params: {bookId: "demo-book-id"} };
     jest.clearAllMocks();
     res = { json: jest.fn() };
   });

@@ -13,7 +13,6 @@ async function fetchPastBook(req, res) {
 async function updatePastBook(req, res) {
   const selectedPictures = req.body.selectedPictures || [];
   const galleryId = req.body.galleryId;
-  console.log(req.body);
   const newData = {
     selectedPictures,
     galleryId,

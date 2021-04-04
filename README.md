@@ -13,5 +13,8 @@
 ### API documentation
 ![Screenshot](api-docs-screenshot.png)
 
+## Tests
+- `npm run test`
+
 ## Known issues
 - post request of Swagger UI console doesn't work
