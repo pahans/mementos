@@ -10,12 +10,13 @@ async function fetchPastBook(req, res) {
   });
 }
 
-// TODO: improve error handling
 async function updatePastBook(req, res) {
-  // TODO: improve input validations
   const selectedPictures = req.body.selectedPictures || [];
+  const galleryId = req.body.galleryId;
+  console.log(req.body);
   const newData = {
     selectedPictures,
+    galleryId,
   };
   await PastBook.findOneAndUpdate({ _id: req.params.bookId }, newData, {
     upsert: true,

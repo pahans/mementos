@@ -1,6 +1,6 @@
 import SelectableImage from "./SelectableImage";
 import { usePicLibrary } from "../lib/hooks";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import "./index.css";
 
 /**
@@ -11,13 +11,18 @@ import "./index.css";
  */
 
 /**
- * 
+ *
  * @param {String} galleryId - gallery Id
  * @param {Object} selectedPictures - Array of selected pictures information.
- * @param {number} maxSelection - Maximum number of images can be picked, must be an integer. 
+ * @param {number} maxSelection - Maximum number of images can be picked, must be an integer.
  * @param {onSelectedPicsChange} onChange - Callback for onChange picture selection.
  */
-function ImagePicker({ galleryId, onChange, selectedPictures = [], maxSelection }) {
+function ImagePicker({
+  galleryId,
+  onChange,
+  selectedPictures = [],
+  maxSelection,
+}) {
   const { data, error, isLoading } = usePicLibrary(galleryId);
   if (isLoading) {
     return "loading";
@@ -26,7 +31,7 @@ function ImagePicker({ galleryId, onChange, selectedPictures = [], maxSelection 
     return "error";
   }
   /**
-   * 
+   *
    * @param {boolean} isSelected - Is currently this picture is selected.
    * @param {Object} selectedPictureInfo - Object with picture information.
    */
@@ -38,12 +43,12 @@ function ImagePicker({ galleryId, onChange, selectedPictures = [], maxSelection 
       });
       onChange(newSelectedPictures);
     } else {
-      if(selectedPictures.length < maxSelection) {
+      if (selectedPictures.length < maxSelection) {
         newSelectedPictures = [...selectedPictures, selectedPictureInfo];
         onChange(newSelectedPictures);
       }
-      if(selectedPictures.length >= maxSelection) {
-        toast.warn('Sorry, You can only select 9 pictures', {
+      if (selectedPictures.length >= maxSelection) {
+        toast.warn("Sorry, You can only select 9 pictures", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: true,
@@ -51,7 +56,7 @@ function ImagePicker({ galleryId, onChange, selectedPictures = [], maxSelection 
           pauseOnHover: true,
           draggable: true,
         });
-      } 
+      }
     }
   };
   return (

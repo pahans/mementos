@@ -5,12 +5,12 @@ import PicturePicker from "../PicturePicker";
 import PictureGrid from "../PictureGrid";
 
 /**
- * book id and gallery are hardcoded because we have not implementated users yet 
+ * book id and gallery are hardcoded because we have not implementated users yet
  * and we only support saving for one pastbook with fixed gallery only.
  * gallery id, book id should passed to the API in the proper implementation
  */
 const GALLERY_ID = "1662ba2b-605f-4c63-84ce-59b2eb9c5679";
-const BOOK_ID = "demo-book-id"
+const BOOK_ID = "demo-book-id";
 
 const MAX_PICTURE_SELECTION = 9;
 const PICTURE_COUNT_PER_ROW = 3;
@@ -18,13 +18,9 @@ const PICTURE_COUNT_PER_ROW = 3;
  * Wrapper component for two main components, PictureGrid and Picture picker.
  */
 function GridMaker() {
-  const {
-    data,
-    error,
-    isLoading,
-    isValidating,
-    revalidate,
-  } = useSelectedPics(BOOK_ID);
+  const { data, error, isLoading, isValidating, revalidate } = useSelectedPics(
+    BOOK_ID
+  );
 
   /**
    *  Revalidate data with the API.
@@ -56,7 +52,9 @@ function GridMaker() {
 
   return (
     <div className="grid-maker">
-      { isValidating && <div className="notification-bar">Syncing Up Data...</div>}
+      {isValidating && (
+        <div className="notification-bar">Syncing Up Data...</div>
+      )}
       <div className="column-left">
         <PicturePicker
           galleryId={GALLERY_ID}

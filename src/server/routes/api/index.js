@@ -29,7 +29,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:3005/api",
+        url: "http://localhost:3005/api/v1",
       },
     ],
   },

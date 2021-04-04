@@ -10,9 +10,9 @@ const SELECTED_PICS_ENDPOINT = "/api/v1/past-book";
  * @param {String} galleryId - gallery Id
  * @returns {Promise} Promise which return json of gallery object from API.
  */
-const fetchWithGallery = ((url, galleryId) => {
+const fetchWithGallery = (url, galleryId) => {
   return fetch(`${url}/${galleryId}`).then((r) => r.json());
-});
+};
 
 /**
  * Fetch Pastbook from bookId.
@@ -20,9 +20,9 @@ const fetchWithGallery = ((url, galleryId) => {
  * @param {String} bookId - Book ID
  * @returns {Promise} Promise which return json of past book object from API.
  */
-const fetchWithPastBook = ((url, bookId) => {
+const fetchWithPastBook = (url, bookId) => {
   return fetch(`${url}/${bookId}`).then((r) => r.json());
-});
+};
 
 /**
  * @typedef {Object} FetchResult
@@ -33,12 +33,15 @@ const fetchWithPastBook = ((url, bookId) => {
  */
 
 /**
- * React hoook for data fetch from gallery API 
+ * React hoook for data fetch from gallery API
  * @param {String} galleryId - Gallery ID
  * @returns {FetchResult} Information about fetch status/data
  */
 export function usePicLibrary(galleryId) {
-  const { data, error } = useSWR([GALLERY_ENDPOINT, galleryId], fetchWithGallery);
+  const { data, error } = useSWR(
+    [GALLERY_ENDPOINT, galleryId],
+    fetchWithGallery
+  );
   return {
     data,
     error,
@@ -47,7 +50,7 @@ export function usePicLibrary(galleryId) {
 }
 
 /**
- * React hoook for data fetch from book API 
+ * React hoook for data fetch from book API
  * @param {String} bookId - book ID
  * @returns {FetchResult} Information about fetch status/data
  */

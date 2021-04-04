@@ -1,7 +1,7 @@
 /**
  * Split a given array in to chunks of arrays.
  * @param {Array[String]} arr - Array to split in to chunks.
- * @param {int} chunkSize - Size of a array chunk, must be an integer. 
+ * @param {int} chunkSize - Size of a array chunk, must be an integer.
  * @returns {Array[...Array[String]]} - Array of chunks.
  */
 export function chunk(arr, chunkSize) {

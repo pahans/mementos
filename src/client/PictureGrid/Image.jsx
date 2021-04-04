@@ -11,7 +11,7 @@ const IMAGE_DRAG_TYPE = "image";
  */
 
 /**
- * 
+ *
  * Placeholder component for image lazy loading.
  * @param { string } pictureUrl - Url of the image
  * @param { string } imageId - Image Id (unique)

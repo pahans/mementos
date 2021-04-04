@@ -10,16 +10,18 @@ import React from "react";
  */
 
 /**
- * 
+ *
  * @param {Array[Object]} pictureChunk - Array of with image info objects
  * @param {move} move - Callback that handles the drag and drop.
- * 
+ *
  */
 function Row({ pictureChunk, move }) {
   return (
     <div className="row">
       {pictureChunk.map(({ picture, id }) => {
-        return <Image pictureUrl={picture} imageId={id} move={move} key={id}></Image>;
+        return (
+          <Image pictureUrl={picture} imageId={id} move={move} key={id}></Image>
+        );
       })}
     </div>
   );

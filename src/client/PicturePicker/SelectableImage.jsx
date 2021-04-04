@@ -15,9 +15,9 @@ const ignoreCheckboxChange = () => {};
  */
 
 /**
- * 
-   * @param {Object} pictureInfo - Object with picture information.
-   * @param {onSelectedPicsChange} onCheckChange - Callback for onChange picture selection.
+ *
+ * @param {Object} pictureInfo - Object with picture information.
+ * @param {onSelectedPicsChange} onCheckChange - Callback for onChange picture selection.
  */
 function SelectableImage({ pictureInfo, onChange: onCheckChange, isSelected }) {
   /**
