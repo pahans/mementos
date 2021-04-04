@@ -9,7 +9,6 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "immutability-helper": "^3.1.1",
-    "jest": "^26.6.3",
     "mongodb": "^3.6.5",
     "mongoose": "^5.12.2",
     "prop-types": "^15.7.2",
@@ -30,8 +29,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "npm run test:server && npm run test:client",
-    "test:client": "react-scripts test",
+    "test": "npm run test:server",
     "test:server": "jest src/server --config jest.server.config.js",
     "eject": "react-scripts eject",
     "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\""
@@ -55,6 +53,7 @@
     ]
   },
   "devDependencies": {
+    "jest": "=26.6.0",
     "jest-mongoose-mock": "^1.2.0",
     "mockingoose": "^2.15.2",
     "prettier": "^2.2.1"
