@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
 import { useSelectedPics, saveSelection } from "../lib/hooks";
+import ErrorBoundary from "../lib/ErrorBoundary";
 import PicturePicker from "../PicturePicker";
 import PictureGrid from "../PictureGrid";
 
@@ -47,7 +48,7 @@ function GridMaker() {
   }
   // Error fetching data
   if (error) {
-    return "error";
+    return "Could not connect to API";
   }
 
   return (
@@ -56,23 +57,27 @@ function GridMaker() {
         <div className="notification-bar">Syncing Up Data...</div>
       )}
       <div className="column-left">
-        <PicturePicker
-          galleryId={GALLERY_ID}
-          onChange={onChange}
-          selectedPictures={data.selectedPictures}
-          maxSelection={MAX_PICTURE_SELECTION}
-        />
+        <ErrorBoundary>
+          <PicturePicker
+            galleryId={GALLERY_ID}
+            onChange={onChange}
+            selectedPictures={data.selectedPictures}
+            maxSelection={MAX_PICTURE_SELECTION}
+          />
+        </ErrorBoundary>
       </div>
       <div className="column-right">
         <div>
           Select your favourite pictures from left panel. Selected Pictures will
           appear below. <b>Drag and drop to rearrange.</b>
         </div>
-        <PictureGrid
-          onChange={onChange}
-          selectedPics={data.selectedPictures}
-          columnCount={PICTURE_COUNT_PER_ROW}
-        />
+        <ErrorBoundary>
+          <PictureGrid
+            onChange={onChange}
+            selectedPics={data.selectedPictures}
+            columnCount={PICTURE_COUNT_PER_ROW}
+          />
+        </ErrorBoundary>
       </div>
     </div>
   );

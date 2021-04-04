@@ -5,6 +5,8 @@ function initDb() {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: true,
+  }).catch((e)=>{
+    console.error("error connecting to database");
   });
 }
 

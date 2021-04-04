@@ -17,7 +17,7 @@ services:
       - .:/usr/app/
       - /usr/app/node_modules
     ports:
-      - "3005:3005"
+      - 3005:3005
     depends_on:
       - mongodb
     environment:

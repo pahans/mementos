@@ -7,7 +7,10 @@ async function fetchPastBook(req, res) {
     } else {
       res.json(data);
     }
-  });
+  }).catch((e)=>{
+    res.json({ status: "failed", selectedPictures: [] });
+    console.error("could not get data from the database: ", e);
+  })
 }
 
 async function updatePastBook(req, res) {
@@ -21,6 +24,9 @@ async function updatePastBook(req, res) {
     upsert: true,
   }).then(() => {
     res.json({ status: "success" });
+  }).catch((e)=>{
+    res.json({ status: "failed" });
+    console.error("could not save data to the database : ", e);
   });
 }
 

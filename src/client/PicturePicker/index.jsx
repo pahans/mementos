@@ -17,7 +17,7 @@ import "./index.css";
  * @param {number} maxSelection - Maximum number of images can be picked, must be an integer.
  * @param {onSelectedPicsChange} onChange - Callback for onChange picture selection.
  */
-function ImagePicker({
+function PicturePicker({
   galleryId,
   onChange,
   selectedPictures = [],
@@ -80,4 +80,4 @@ function ImagePicker({
   );
 }
 
-export default ImagePicker;
+export default PicturePicker;
