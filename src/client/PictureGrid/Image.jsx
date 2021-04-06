@@ -53,9 +53,10 @@ function Image({ pictureUrl, imageId, move }) {
   const opacity = isOver ? 0.4 : 1;
   const imageWrapRef = useRef(null);
   drop(drag(imageWrapRef));
+  const onDrop = (e)=>{e.preventDefault()};
   return (
     <div className="image-wrap" ref={imageWrapRef} style={{ opacity }}>
-      <img src={`${pictureUrl}`} alt={imageId} />
+      <img src={`${pictureUrl}`} alt={imageId} onDrop={onDrop} />
     </div>
   );
 }
